@@ -3,8 +3,7 @@
     BaseRegistry 클래스는 클래스를 등록하고, 이름을 통해 해당 클래스를 인스턴스화할 수 있는 기능을 제공합니다.
 
     기본적인 사용 예제:
-    >>> class TempRegistry(metaclass=BaseRegistry):
-    ...     pass
+    >>> TempRegistry = REGISTRY_FACTORY("TempRegistry")
 
     >>> @TempRegistry.register
     ... class MyClass:
@@ -34,13 +33,28 @@
 
         def build(cls, cfg):
             name = cfg.get("name")
-            assert name in cls.REGISTRY
+            assert name in cls.REGISTRY, f"{name} is not registered."
             return cls.REGISTRY[name](**cfg)
 
         new_cls.register = classmethod(register)
         new_cls.build = classmethod(build)
 
         return new_cls
+
+
+def REGISTRY_FACTORY(name):
+    """
+    이름을 통해 새로운 레지스트리 클래스를 생성하여 반환합니다.
+
+    예제:
+    >>> TempRegistry = REGISTRY_FACTORY("TempRegistry")
+    >>> isinstance(TempRegistry, type)
+    True
+    >>> TempRegistry.__name__
+    'TempRegistry'
+    """
+    # 동적으로 이름이 name인 클래스를 생성하고, BaseRegistry를 메타클래스로 지정
+    return BaseRegistry(name, (object,), {})
 
 
 if __name__ == "__main__":
