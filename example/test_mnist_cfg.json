@@ -1,0 +1,11 @@
+﻿{
+    "dataset": {
+        "name": "MNistDataset"
+    },
+    "model": {
+        "name": "SampleNetwork"
+    },
+    "optimizer": {
+        "name": "Adam"
+    },
+}
