@@ -1,0 +1,39 @@
+BasedOnStyle: Google
+
+# 코드 & 주석 관련
+SpacesBeforeTrailingComments: 2  # 주석 앞 최소 두 칸
+AlignTrailingComments: true      # 주석 정렬
+
+# 들여쓰기 및 공백
+IndentWidth: 4
+UseTab: Never
+TabWidth: 4
+
+# 괄호 스타일
+BreakBeforeBraces: Allman
+
+# 포인터 위치
+PointerAlignment: Left
+
+# 최대 줄 수
+ColumnLimit: 100
+
+# include 순서/정렬
+SortIncludes: true
+IncludeBlocks: Preserve
+IncludeCategories:
+  - Regex:           '^<.*\.h>'
+    Priority:        1
+  - Regex:           '^".*'
+    Priority:        2
+
+# 네임스페이스 및 기타
+NamespaceIndentation: None
+IndentCaseLabels: true
+AllowShortFunctionsOnASingleLine: Empty
+AccessModifierOffset: -3
+
+# clang-format은 파일 끝 개행 삽입도 지원
+InsertNewlineAtEOF: true
+
+FixNamespaceComments: true
