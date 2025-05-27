@@ -1,4 +1,5 @@
 # FindSpdlog.cmake
+message(STATUS "[FindSpdlog] Loaded custom FindSpdlog.cmake")
 
 # 시도: 시스템에서 spdlog 헤더 찾기
 find_path(SPDLOG_INCLUDE_DIR spdlog/spdlog.h)
