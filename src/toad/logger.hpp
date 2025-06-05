@@ -48,14 +48,14 @@ class Logger : public ::toad::mixin::Singleton<Logger>
 }  // namespace toad
 
 #define TOAD_TRACE(format, ...) \
-    toad::Logger::instance().log(spdlog::level::trace, format, __VA_ARGS__)
+    toad::Logger::getInstance().log(spdlog::level::trace, format, __VA_ARGS__)
 #define TOAD_DEBUG(format, ...) \
-    toad::Logger::instance().log(spdlog::level::debug, format, __VA_ARGS__)
+    toad::Logger::getInstance().log(spdlog::level::debug, format, __VA_ARGS__)
 #define TOAD_INFO(format, ...) \
-    toad::Logger::instance().log(spdlog::level::info, format, __VA_ARGS__)
+    toad::Logger::getInstance().log(spdlog::level::info, format, __VA_ARGS__)
 #define TOAD_WARN(format, ...) \
-    toad::Logger::instance().log(spdlog::level::warn, format, __VA_ARGS__)
+    toad::Logger::getInstance().log(spdlog::level::warn, format, __VA_ARGS__)
 #define TOAD_ERROR(format, ...) \
-    toad::Logger::instance().log(spdlog::level::err, format, __VA_ARGS__)
+    toad::Logger::getInstance().log(spdlog::level::err, format, __VA_ARGS__)
 #define TOAD_CRITICAL(format, ...) \
-    toad::Logger::instance().log(spdlog::level::critical, format, __VA_ARGS__)
+    toad::Logger::getInstance().log(spdlog::level::critical, format, __VA_ARGS__)

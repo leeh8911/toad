@@ -6,10 +6,10 @@ template <typename T>
 class Singleton
 {
  public:
-    static T& instance()
+    static auto getInstance() -> T&
     {
-        static T instance;
-        return instance;
+        static T getInstance;
+        return getInstance;
     }
 
     Singleton(const Singleton&) = delete;
